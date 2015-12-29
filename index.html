@@ -40,59 +40,32 @@ function loginCallback(result)
      
      
      
-        var request = gapi.client.plus.people.get({
-        'userId': 'me'
-      }).then(function(res) {
-        var profile = res.result;
-        console.log(profile);
-        $('#profile').empty();
-        $('#profile').append(
-            $('<p><img src=\"' + profile.image.url + '\"></p>'));
-        $('#profile').append(
-            $('<p>Hello ' + profile.displayName + '!<br />Tagline: ' +
-            profile.tagline + '<br />About: ' + profile.aboutMe + '</p>'));
-        if (profile.emails) {
-          $('#profile').append('<br/>Emails: ');
-          for (var i=0; i < profile.emails.length; i++){
-            $('#profile').append(profile.emails[i].value).append(' ');
-          }
-          $('#profile').append('<br/>');
-        }
-        if (profile.cover && profile.coverPhoto) {
-          $('#profile').append(
-              $('<p><img src=\"' + profile.cover.coverPhoto.url + '\"></p>'));
-        }
-      }, function(err) {
-        var error = err.result;
-        $('#profile').empty();
-        $('#profile').append(error.message);
-      });
-    }
-  };
-();
-/*
-        request.execute(function (resp)
-        {
-            var email = '';
-            if(resp['emails'])
-            {
-                for(i = 0; i < resp['emails'].length; i++)
-                {
-                    if(resp['emails'][i]['type'] == 'account')
-                    {
-                        email = resp['emails'][i]['value'];
-                    }
-                }
-            }
- 
-            var str = "Name:" + resp['displayName'] + "<br>";
-            str += "Image:" + resp['image']['url'] + "<br>";
-            str += "<img src='" + resp['image']['url'] + "' /><br>";
-            str += "URL:" + resp['url'] + "<br>";
-           str += "Email:" + email + "<br>";
-            document.getElementById("profile").innerHTML = str;
-        });
-        */
+        gapi.client.plus.people.get(
+     {
+         'userId': 'me'
+     });
+     request.execute(function (resp)
+     {
+         var email = '';
+         if(resp['emails'])
+         {
+             for(i = 0; i < resp['emails'].length; i++)
+             {
+                 if(resp['emails'][i]['type'] == 'account')
+                 {
+                     email = resp['emails'][i]['value'];
+                 }
+             }
+         }
+      
+         var str = "Name:" + resp['displayName'] + "<br>";
+         str += "Image:" + resp['image']['url'] + "<br>";
+         str += "<img src='" + resp['image']['url'] + "' /><br>";
+      
+         str += "URL:" + resp['url'] + "<br>";
+         str += "Email:" + email + "<br>";
+         document.getElementById("profile").innerHTML = str;
+     });
  
     }
  
