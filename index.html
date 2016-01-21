@@ -3,19 +3,17 @@
 <head>
 	<title>嗚咪</title>
 	<meta property="og:image" content="http://umi910916.github.io/Image/mikan.png"/>
+	<script>
+		background = new Image()
+		background.src = "http://umi910916.github.io/Image/macaron.jpg"
+	</script>
+	
 </head>
-<body>
+<body background="Image/macaron.jpg">
 
 <h1>Umi</h1>
 
-setSite();
 
-<script>
-function setSite(){
-	style.color="brown";
-	document.body.style.backgroundImage = "http://umi910916.github.io/Image/macaron.jpg";
-}
-</script>
 <button type="button"
 onclick="document.getElementById('showcurrenttime').innerHTML = Date()">
 顯示時間</button>
