@@ -3,19 +3,50 @@
 
 <head>
 	<title>嗚咪</title>
-	<meta property="og:image" content="http://umi910916.github.io/Image/mikan.png"/>
 	<link rel="shortcut icon" href="Image/mikan.ico">
+	<style>
+		#header {
+			background-color:#61210B;
+			color:#F6CECE;
+			text-align:center;
+			padding:5px;
+		}
+		#left {
+			line-height:30px;
+			background-color:#F6E3CE;
+			height:300px;
+			width:100px;
+			float:left;
+			padding:5px;	      
+		}
+		#right {
+			width:350px;
+			float:left;
+			padding:10px;	 	 
+		}
+		#footer {
+			background-color:#FAAC58;
+			color:#610B0B;
+			clear:both;
+			text-align:center;
+		   padding:5px;	 	 
+		}
+	</style>
 	
 </head>
 
 <body background="Image/macaron.jpg">
 
-<h6>Umi</h6>
+<div id="header">
+<h3>嗚咪のお菓子ノート</h3>
+</div>
 
-
-
-
+<div id="footer">
+<p>Department of Computer Science and Information Engineering</p>
+<p>National Central University</p>
 <p id="timer"></p>
+</div>
+
 <script>
 	var myVar = setInterval(myTimer, 1000);
 	function myTimer() {
