@@ -5,19 +5,36 @@
 	<title>嗚咪</title>
 	<link rel="shortcut icon" href="Image/mikan.ico">
 	<style>
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			width: 25%;
+			background-color: #F3E2A9;
+			position: fixed;
+			height: 100%;
+			overflow: auto;
+		}
+		li a {
+			display: block;
+			color: #000;
+			padding: 8px 0 8px 16px;
+			text-decoration: none;
+		}
+		li a.active {
+			background-color: #FF8000;
+			color: white;
+		}
+		li a:hover:not(.active) {
+			background-color: #D0A679;
+			color: white;
+		}
+		
 		#header {
 			background-color:#61210B;
 			color:#F6CECE;
 			text-align:center;
 			padding:3%;
-		}
-		#nav {
-			line-height:5px;
-			background-color:#F6E3CE;
-			height:300px;
-			width:100px;
-			float:left;
-			padding:3%;	      
 		}
 		#section {
 			width:500px;
@@ -38,12 +55,14 @@
 </head>
 
 <body background="Image/macaron.jpg">
-
+<ul>
+  <li><a href="Google+ Profile.html">Google+ Profile</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
 <div id="header">
 <h3>嗚咪のお菓子ノート</h3>
-</div>
-<div id="nav">
-<p>NAV</p>
 </div>
 <div id="section">
 <p>sECTION</p>
