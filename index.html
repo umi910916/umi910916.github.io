@@ -5,21 +5,23 @@
 	<title>嗚咪</title>
 	<meta property="og:image" content="http://umi910916.github.io/Image/mikan.png"/>
 	<link rel="shortcut icon" href="Image/mikan.ico">
-	<script>
-		background = new Image()
-		background.src = "http://umi910916.github.io/Image/macaron.jpg"
-	</script>
 	
 </head>
+
 <body background="Image/macaron.jpg">
 
-<h1>Umi</h1>
+<h6>Umi</h6>
 
 
-<button type="button"
-onclick="document.getElementById('showcurrenttime').innerHTML = Date()">
-顯示時間</button>
-<p id="showcurrenttime"></p>
 
+
+<p id="timer"></p>
+<script>
+	var myVar = setInterval(myTimer, 1000);
+	function myTimer() {
+		var d = new Date();
+		document.getElementById("timer").innerHTML = d.toLocaleTimeString();
+	}
+</script>
 </body>
 </html> 
