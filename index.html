@@ -19,11 +19,11 @@
     <form name="myForm">
     Dates：
     <select size=5 onChange="renew(this.selectedIndex);">
-    	<option value="312">312
-    	<option value="313">313
-    	<option value="314">314
-    	<option value="315">315
-    	<option value="316">316
+    	<option value="2016/03/12">312
+    	<option value="2016/03/13">313
+    	<option value="2016/03/14">314
+    	<option value="2016/03/15">315
+    	<option value="2016/03/16">316
     </select>
 
     Plane：
@@ -37,10 +37,11 @@
 // Kingsford Smith's first trans-Pacific flight between Oakland, CA, and
 // Brisbane, Australia.
 coordinates=new Array();
-coordinates[0]=["張隆紋", "黃能富", "王炳豐", "張世杰", "張智星"];	// 資訊系
-coordinates[1]=["黃瑞星", "黃仲陵", "呂忠津", "鄭伯泰", "盧向成"];	// 電機系
-coordinates[2]=["楊敬堂", "王培仁", "葉銘權", "宋鎮國"];			// 動機系
-coordinates[3]=["王天戈", "開執中", "梁正宏"];				// 工科系
+coordinates[0]=["00475B", "AD823S", "DIP182", "N21392", "AI1720"];	
+coordinates[1]=["00475B", "DIP182", "N21392", "AI1720"];
+coordinates[2]=["00475B", "DA193Q", "AN1904", "DJ1133"];		
+coordinates[3]=["00475B", "DJL134", "FK1345"];
+coordinates[4]=["00475B", "DO1394", "COE133"];	
 
 function renew(index){
 	for(var i=0;i<coordinates[index].length;i++)
@@ -56,10 +57,10 @@ function initMap() {
   });
 
   var flightPlanCoordinates = [
-    {lat: 37.772, lng: -122.214},
-    {lat: 21.291, lng: -157.821},
-    {lat: -18.142, lng: 178.431},
-    {lat: -27.467, lng: 153.027}
+    {lat: 24.71617, lng: 121.14354}, 
+    {lat: 24.83643, lng: 121.24212}, 
+    {lat: 25.05226, lng: 121.41942}, 
+    {lat: 25.25404, lng: 121.58112} 
   ];
   var flightPath = new google.maps.Polyline({
     path: flightPlanCoordinates,
