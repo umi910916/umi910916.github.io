@@ -19,11 +19,11 @@
     <form name="myForm">
     Dates：
     <select size=5 onChange="renew(this.selectedIndex);">
-    	<option value="2016/03/12">312
-    	<option value="2016/03/13">313
-    	<option value="2016/03/14">314
-    	<option value="2016/03/15">315
-    	<option value="2016/03/16">316
+    	<option value="2016/03/12">2016/03/12
+    	<option value="2016/03/13">2016/03/13
+    	<option value="2016/03/14">2016/03/14
+    	<option value="2016/03/15">2016/03/15
+    	<option value="2016/03/16">2016/03/16
     </select>
 
     Plane：
@@ -51,8 +51,8 @@ function renew(index){
 
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 10,
-    center: {lat: 0, lng: -180},
+    zoom: 5,
+    center: {lat: 25, lng: 121},
     mapTypeId: google.maps.MapTypeId.TERRAIN
   });
 
