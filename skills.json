@@ -5,13 +5,13 @@
    "name": "analytics",
    "children": [
     {"name": "Visual J++" , "size": 3534},
-	{"name": "Visual J#", "size": 3534},
-	{"name": "JCreator Pro", "size": 3534},
-	{"name": "JMS", "size": 3534},
-	{"name": "JSF", "size": 3534},
-	{"name": "JSP", "size": 3534},
-	{"name": "RMI", "size": 3534},
-	{"name": "Spring", "size": 3534}
+    {"name": "Visual J#", "size": 3534},
+    {"name": "JCreator Pro", "size": 3534},
+    {"name": "JMS", "size": 3534},
+    {"name": "JSF", "size": 3534},
+    {"name": "JSP", "size": 3534},
+    {"name": "RMI", "size": 3534},
+    {"name": "Spring", "size": 3534}
 	]
   },
   {
@@ -24,7 +24,7 @@
    "name": "Visual Studio",
    "children": [
     {"name": "Visual SourceSafe", "size": 1759},
-	{"name": "Visual Studio.net", "size": 1759}
+	  {"name": "Visual Studio.net", "size": 1759}
    ]
   },
   {
