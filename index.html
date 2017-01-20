@@ -1,78 +1,93 @@
 <!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
-<input type="button"  value="Login" onclick="login()" />
-<input type="button"  value="Logout" onclick="logout()" />
- 
-<div id="profile"></div>
-<script type="text/javascript">
- 
-function logout()
-{
-    gapi.auth.signOut();
-    location.reload();
+<meta charset="utf-8">
+<style>
+
+.links line {
+  stroke: #999;
+  stroke-opacity: 0.6;
 }
-function login() 
-{
-  var myParams = {
-    'clientid' : '787934842967-logoutfc7j6pakudldu614jijtoed5rc.apps.googleusercontent.com',
-    'cookiepolicy' : 'single_host_origin',
-    'callback' : 'loginCallback',
-    'approvalprompt':'force',
-    'scope' : 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read https://www.googleapis.com/auth/userinfo.profile'
-  };
-  gapi.auth.signIn(myParams);
+
+.nodes circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
 }
-function loginCallback(result)
-{
-    if(result['status']['signed_in'])
-    {
-        var request = gapi.client.plus.people.get(
-        {
-            'userId': 'me'
-        });
-        request.execute(function (resp)
-        {
-            var email = '';
-            if(resp['emails'])
-            {
-                for(i = 0; i < resp['emails'].length; i++)
-                {
-                    if(resp['emails'][i]['type'] == 'account')
-                    {
-                        email = resp['emails'][i]['value'];
-                    }
-                }
-            }
- 
-            var str = "Name:" + resp['displayName'] + "<br>";
-            str += "Image:" + resp['image']['url'] + "<br>";
-            str += "<img src='" + resp['image']['url'] + "' /><br>";
- 
-            str += "URL:" + resp['url'] + "<br>";
-            str += "Email:" + email + "<br>";
-            document.getElementById("profile").innerHTML = str;
-        });
- 
-    }
- 
-}function onLoadCallback()
-{
-    gapi.client.setApiKey('AIzaSyDW-GLWmaUq6ZS7y440fXKzN3OaAWaauv8');
-    gapi.client.load('plus', 'v1',function(){});
+
+</style>
+<svg width="960" height="600"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+var simulation = d3.forceSimulation()
+    .force("link", d3.forceLink().id(function(d) { return d.id; }))
+    .force("charge", d3.forceManyBody())
+    .force("center", d3.forceCenter(width / 2, height / 2));
+
+d3.json("miserables.json", function(error, graph) {
+  if (error) throw error;
+
+  var link = svg.append("g")
+      .attr("class", "links")
+    .selectAll("line")
+    .data(graph.links)
+    .enter().append("line")
+      .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
+
+  var node = svg.append("g")
+      .attr("class", "nodes")
+    .selectAll("circle")
+    .data(graph.nodes)
+    .enter().append("circle")
+      .attr("r", 5)
+      .attr("fill", function(d) { return color(d.group); })
+      .call(d3.drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended));
+
+  node.append("title")
+      .text(function(d) { return d.id; });
+
+  simulation
+      .nodes(graph.nodes)
+      .on("tick", ticked);
+
+  simulation.force("link")
+      .links(graph.links);
+
+  function ticked() {
+    link
+        .attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+
+    node
+        .attr("cx", function(d) { return d.x; })
+        .attr("cy", function(d) { return d.y; });
+  }
+});
+
+function dragstarted(d) {
+  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+  d.fx = d.x;
+  d.fy = d.y;
 }
- 
-    </script>
- 
-<script type="text/javascript">
-      (function() {
-       var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-       po.src = 'https://apis.google.com/js/client.js?onload=onLoadCallback';
-       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-     })();
+
+function dragged(d) {
+  d.fx = d3.event.x;
+  d.fy = d3.event.y;
+}
+
+function dragended(d) {
+  if (!d3.event.active) simulation.alphaTarget(0);
+  d.fx = null;
+  d.fy = null;
+}
+
 </script>
- 
-</body>
-</html>
