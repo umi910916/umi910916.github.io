@@ -18,7 +18,8 @@
    "name": "PHP",
    "children": [
     {"name": "PECL", "size": 17010}
-   },
+   ]
+  },
   {
    "name": "Visual Studio",
    "children": [
