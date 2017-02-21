@@ -21,7 +21,7 @@ text {
 
 </style>
 <body>
-  <p name="change">  </p>
+  <p id="change">  </p>
 	
  <form name="myForm">
     Job Type：
@@ -38,8 +38,10 @@ text {
   
   function renew(index){
 	 //changes
-	  document.change.value = index
+	  document.getElementById("change").innerHTML = index;
   }
+</script>
+<script>
 // http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/
 var links = [
   {source: "Programming", target: "Java", type: ""},
