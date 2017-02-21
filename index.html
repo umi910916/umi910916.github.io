@@ -21,7 +21,7 @@ text {
 
 </style>
 <body>
-  <p id="change"> AAAAA  </p>
+  <p id="change"> AAAAA~  </p>
 	
  <form name="myForm">
     Job Type：
@@ -39,7 +39,7 @@ text {
   function renew(index){
 	 //changes
 	  for(var i=0;i<index.length;i++)
-	    document.getElementById("change").write("CHANGE~~"+ i);
+	    document.getElementById("change").innerHTML = "CHANGE!" + document.write(i);
   }
 </script>
 <script>
