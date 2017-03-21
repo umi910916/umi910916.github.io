@@ -17,7 +17,7 @@ text {
 }
 </style>
 <body>
-  <p id="change"> choose MAP ~ </p>
+  <p id="change"> choose MAP ~1 </p>
 	
  <form name="myForm">
     Job Type：
@@ -84,7 +84,7 @@ links[1] = [
 ];
 var nodes = {};
 // Compute the distinct nodes from the links.
-links[mapNum].forEach(function(link) {
+links[1].forEach(function(link) {
   link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
   link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
 });
