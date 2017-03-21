@@ -17,7 +17,7 @@ text {
 }
 </style>
 <body>
-  <p id="change"> choose MAP ~1 </p>
+  <p id="change"> choose MAP ~2 </p>
 	
  <form name="myForm">
     Job Type：
@@ -92,7 +92,7 @@ var width = 960,
     height = 500;
 var force = d3.layout.force()
     .nodes(d3.values(nodes))
-    .links(links[mapNum])
+    .links(links[1])
     .size([width, height])
     .linkDistance(60)
     .charge(-300)
