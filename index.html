@@ -216,7 +216,7 @@ function redrawMap (mapNum){
 	  link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
 	  link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
 	});
-	var width = 960,
+	var width = 500,
 	    height = 500;
 	var force = d3.layout.force()
 	    .nodes(d3.values(nodes))
@@ -287,10 +287,10 @@ function redrawMap (mapNum){
 	<div id="container">
 		
 		<main id="center" class="column">
-		<svg id = "coursemap" width = "960" height = "500">
+		<svg id = "coursemap" width = "500" height = "500">
 		</svg>
 			
-		<h1>Centerred</h1>
+		<h3>Send Feedbacks</h3>
 				
 											
 		</main>
