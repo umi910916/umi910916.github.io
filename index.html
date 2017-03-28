@@ -224,7 +224,7 @@ function redrawMap (mapNum){
 	    .charge(-300)
 	    .on("tick", tick)
 	    .start();
-	var svg = d3.select("center").append("svg")
+	var svg = d3.select("body").append("svg")
 	    .attr("width", width)
 	    .attr("height", height);
 	var link = svg.selectAll(".link")
@@ -288,7 +288,7 @@ function redrawMap (mapNum){
 			<article>
 			
 				<h1>Center</h1>
-				//<p><script>generateText(50)</script></p>
+				
 			
 			</article>								
 		</main>
@@ -311,13 +311,13 @@ function redrawMap (mapNum){
 
 		<div id="right" class="column">
 			<h3>Others</h3>
-			<p><script>generateText(1)</script></p>
+		
 		</div>
 
 	</div>
 
 	<div id="footer-wrapper">
-		<footer id="footer"><p>Footer...</p></footer>
+		<footer id="footer"><p>National Central University, Taoyuan, Taiwan</p></footer>
 	</div>
 
 </body>
