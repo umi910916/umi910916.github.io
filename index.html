@@ -224,7 +224,7 @@ function redrawMap (mapNum){
 	    .charge(-300)
 	    .on("tick", tick)
 	    .start();
-	var svg = d3.getElementById("center").append("svg")
+	var svg = d3.select("body").append("#center")
 	    .attr("width", width)
 	    .attr("height", height);
 	var link = svg.selectAll(".link")
@@ -287,7 +287,7 @@ function redrawMap (mapNum){
 		<main id="main_center" class="column">
 			<article>
 			
-				<h1>Center23</h1>
+				<h1>Center5</h1>
 				<div id="center">
 				</div>
 			</article>								
