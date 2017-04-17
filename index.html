@@ -199,16 +199,13 @@
 	</style>
 	
 	<script src="//d3js.org/d3.v3.min.js"></script>
+	<script type="text/javascript" src="maps.json"></script>
 	<script>
 	var mapNum=0;
   function renew(index){
 	 //changes
 	 // for(var i=0;i<index.length;i++)
-	 
-	 
 	  document.getElementById("change").innerHTML = index;
-		  
-	  
 	  d3.select("#coursemap").html("");
 	  redrawMap(index);
 	  
@@ -216,55 +213,14 @@
   }
 function redrawMap (mapNum){
 	// http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/
-	links = new Array();
-	links[0] = [
-	  {source: "Programming", target: "Java", type: ""},
-	  {source: "Programming", target: "PHP", type: ""},
-	  {source: "Programming", target: "Visual Studio", type: ""},
-	  {source: "Programming", target: "Visual Basic", type: ""},
-	  {source: "Java", target: "Visual J++", type: ""},
-	  {source: "Java", target: "Visual J#", type: ""},
-	  {source: "Java", target: "JCreator Pro", type: ""},
-	  {source: "Java", target: "JMS", type: ""},
-	  {source: "Java", target: "JSF", type: ""},
-	  {source: "Java", target: "JSP", type: ""},
-	  {source: "JSP", target: "Struts", type: ""},
-	  {source: "Java", target: "RMI", type: ""},
-	  {source: "Java", target: "Spring", type: ""},
-	  {source: "PHP", target: "PECL", type: ""},
-	  {source: "Visual Studio", target: "Visual SourceSafe", type: ""},
-	  {source: "Visual Studio", target: "Visual Studio .net", type: ""},
-	  {source: "Visual Basic", target: "Visual Basic .net", type: ""},
-	  {source: "Visual Basic", target: "VBA", type: ""}
-	];
-	links[1] = [
-	  {source: "Programming", target: "Java", type: ""},
-	  {source: "Programming", target: "PHP", type: ""},
-	  {source: "Programming", target: "Visual Studio", type: ""},
-	  {source: "Programming", target: "Visual Basic", type: ""},
-	];
-	links[2] = [
-	  {source: "Java", target: "Visual J++", type: ""},
-	  {source: "Java", target: "Visual J#", type: ""},
-	  {source: "Java", target: "JCreator Pro", type: ""},
-	  {source: "Java", target: "JMS", type: ""},
-	];
-	links[3] = [
-	  {source: "Java", target: "JSF", type: ""},
-	  {source: "Java", target: "JSP", type: ""},
-	  {source: "JSP", target: "Struts", type: ""},
-	  {source: "Java", target: "RMI", type: ""},
-	  {source: "Java", target: "Spring", type: ""},
-	];
-	links[4] = [
-	  {source: "Visual Studio", target: "Visual SourceSafe", type: ""},
-	  {source: "Visual Studio", target: "Visual Studio .net", type: ""},
-	  {source: "Visual Basic", target: "Visual Basic .net", type: ""},
-	  {source: "Visual Basic", target: "VBA", type: ""}
-	];
+	var maplinks = JSON.parse(maps);
+	
+	
+	links = maplinks[index];
+	
 	var nodes = {};
 	// Compute the distinct nodes from the links.
-	links[mapNum].forEach(function(link) {
+	links.forEach(function(link) {
 	  link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
 	  link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
 	});
@@ -272,7 +228,7 @@ function redrawMap (mapNum){
 	    height = 500;
 	var force = d3.layout.force()
 	    .nodes(d3.values(nodes))
-	    .links(links[mapNum])
+	    .links(links)
 	    .size([width, height])
 	    .linkDistance(60)
 	    .charge(-300)
@@ -393,7 +349,7 @@ function redrawMap (mapNum){
 	</div>
 
 	<div id="footer-wrapper">
-		<footer id="footer"><p>National Central University, Taoyuan, TaiwanA</p></footer>
+		<footer id="footer"><p>National Central University, Taoyuan, TaiwanB</p></footer>
 	</div>
 
 </body>
