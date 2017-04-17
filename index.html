@@ -210,50 +210,160 @@
 function redrawMap (mapNum){
 	// http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/
 	links = new Array();
-	links[0] = [
-	  {source: "Programming", target: "Java", type: ""},
-	  {source: "Programming", target: "PHP", type: ""},
-	  {source: "Programming", target: "Visual Studio", type: ""},
-	  {source: "Programming", target: "Visual Basic", type: ""},
-	  {source: "Java", target: "Visual J++", type: ""},
-	  {source: "Java", target: "Visual J#", type: ""},
-	  {source: "Java", target: "JCreator Pro", type: ""},
-	  {source: "Java", target: "JMS", type: ""},
-	  {source: "Java", target: "JSF", type: ""},
-	  {source: "Java", target: "JSP", type: ""},
-	  {source: "JSP", target: "Struts", type: ""},
-	  {source: "Java", target: "RMI", type: ""},
-	  {source: "Java", target: "Spring", type: ""},
-	  {source: "PHP", target: "PECL", type: ""},
-	  {source: "Visual Studio", target: "Visual SourceSafe", type: ""},
-	  {source: "Visual Studio", target: "Visual Studio .net", type: ""},
-	  {source: "Visual Basic", target: "Visual Basic .net", type: ""},
-	  {source: "Visual Basic", target: "VBA", type: ""}
+	links[0]=[ 
+	  {source: "Programming", target: "C", type: ""},
+	  {source: "C", target: "Win32", type: ""},
+	  {source: "Programming", target: "Assembly", type: ""},
 	];
-	links[1] = [
-	  {source: "Programming", target: "Java", type: ""},
-	  {source: "Programming", target: "PHP", type: ""},
-	  {source: "Programming", target: "Visual Studio", type: ""},
-	  {source: "Programming", target: "Visual Basic", type: ""},
+	
+	links[1]=[ 
+		  {source: "ASP", target: "ASP.NET", type: ""},
+		  {source: "C++", target: "C#", type: ""},
+		  {source: "C#", target: "Visual C#", type: ""},
+		  {source: "Visual Studio", target: "Visual Studio .net", type: ""},
+		  {source: "Microsoft .net", target: "WinForm", type: ""},
 	];
-	links[2] = [
-	  {source: "Java", target: "Visual J++", type: ""},
-	  {source: "Java", target: "Visual J#", type: ""},
-	  {source: "Java", target: "JCreator Pro", type: ""},
-	  {source: "Java", target: "JMS", type: ""},
+	links[2]=[ 
+		  {source: "Programming", target: "Java", type: ""},
+		  {source: "Java", target: "Visual J++", type: ""},
+		  {source: "Java", target: "Visual J#", type: ""},
+		  {source: "Java", target: "JCreator Pro", type: ""},
+		  {source: "Java", target: "JMS", type: ""},
+		  {source: "Java", target: "JSF", type: ""},
+		  {source: "Java", target: "JSP", type: ""},
+		  {source: "Java", target: "RMI", type: ""},
+		  {source: "Java", target: "Spring", type: ""},
 	];
-	links[3] = [
-	  {source: "Java", target: "JSF", type: ""},
-	  {source: "Java", target: "JSP", type: ""},
-	  {source: "JSP", target: "Struts", type: ""},
-	  {source: "Java", target: "RMI", type: ""},
-	  {source: "Java", target: "Spring", type: ""},
+	links[3]=[ 
+		  {source: "Programming", target: "PHP", type: ""},
+		  {source: "PHP", target: "PECL", type: ""},
+		  {source: "Web Technology", target: "JavaScript", type: ""},
+		  {source: "JavaScript", target: "AJAX", type: ""},
 	];
-	links[4] = [
-	  {source: "Visual Studio", target: "Visual SourceSafe", type: ""},
-	  {source: "Visual Studio", target: "Visual Studio .net", type: ""},
-	  {source: "Visual Basic", target: "Visual Basic .net", type: ""},
-	  {source: "Visual Basic", target: "VBA", type: ""}
+	links[4]=[ 
+		  {source: "Programming", target: "Java", type: ""},
+		  {source: "Java", target: "Visual J++", type: ""},
+		  {source: "Java", target: "Visual J#", type: ""},
+		  {source: "Java", target: "JCreator Pro", type: ""},
+		  {source: "Java", target: "JMS", type: ""},
+		  {source: "Java", target: "JSF", type: ""},
+		  {source: "Java", target: "JSP", type: ""},
+		  {source: "Java", target: "RMI", type: ""},
+		  {source: "Java", target: "Spring", type: ""},
+	];
+	links[5]=[ 
+		  {source: "Programming", target: "C", type: ""},
+		  {source: "C", target: "Win32", type: ""},
+	];
+	
+	links[6]=[ 
+		  {source: "Programming", target: "Java", type: ""},
+		  {source: "Java", target: "Visual J++", type: ""},
+		  {source: "Java", target: "Visual J#", type: ""},
+		  {source: "Java", target: "JCreator Pro", type: ""},
+		  {source: "Java", target: "JMS", type: ""},
+		  {source: "Java", target: "JSF", type: ""},
+		  {source: "Java", target: "JSP", type: ""},
+		  {source: "Java", target: "RMI", type: ""},
+		  {source: "Java", target: "Spring", type: ""},
+	];
+	
+	links[7]=[ 
+		  {source: "Programming", target: "Java", type: ""},
+		  {source: "Java", target: "Visual J++", type: ""},
+		  {source: "Java", target: "Visual J#", type: ""},
+		  {source: "Java", target: "JCreator Pro", type: ""},
+		  {source: "Java", target: "JMS", type: ""},
+		  {source: "Java", target: "JSF", type: ""},
+		  {source: "Java", target: "JSP", type: ""},
+		  {source: "Java", target: "RMI", type: ""},
+		  {source: "Java", target: "Spring", type: ""},
+	];
+	links[8]=[ 
+		  {source: "Programming", target: "Java", type: ""},
+		  {source: "Java", target: "Visual J++", type: ""},
+		  {source: "Java", target: "Visual J#", type: ""},
+		  {source: "Java", target: "JCreator Pro", type: ""},
+		  {source: "Java", target: "JMS", type: ""},
+		  {source: "Java", target: "JSF", type: ""},
+		  {source: "Java", target: "JSP", type: ""},
+		  {source: "Java", target: "RMI", type: ""},
+		  {source: "Java", target: "Spring", type: ""},
+	];
+	links[9]=[ 
+		  {source: "Programming", target: "Java", type: ""},
+		  {source: "Java", target: "Visual J++", type: ""},
+		  {source: "Java", target: "Visual J#", type: ""},
+		  {source: "Java", target: "JCreator Pro", type: ""},
+		  {source: "Java", target: "JMS", type: ""},
+		  {source: "Java", target: "JSF", type: ""},
+		  {source: "Java", target: "JSP", type: ""},
+		  {source: "Java", target: "RMI", type: ""},
+		  {source: "Java", target: "Spring", type: ""},
+	];
+	
+	links[10]=[ 
+		  {source: "Programming", target: "Linux", type: ""},
+		  {source: "Linux", target: "A+", type: ""},
+		  {source: "JavaScript", target: "AJAX", type: ""},
+		  {source: "Programming", target: "Java", type: ""},
+		  {source: "Java", target: "Visual J++", type: ""},
+		  {source: "Java", target: "Visual J#", type: ""},
+		  {source: "Java", target: "JCreator Pro", type: ""},
+		  {source: "Java", target: "JMS", type: ""},
+		  {source: "Java", target: "JSF", type: ""},
+		  {source: "Java", target: "JSP", type: ""},
+		  {source: "Java", target: "RMI", type: ""},
+		  {source: "Java", target: "Spring", type: ""},
+		  {source: "Java", target: "JSP", type: ""},
+		  {source: "JSP", target: "Struts", type: ""},
+		  {source: "Programming", target: "Python", type: ""},
+		  {source: "Java", target: "Spring", type: ""},
+		  {source: "JSP", target: "Struts", type: ""},
+		  {source: "Web Technology", target: "JavaScript", type: ""},
+		  {source: "JavaScript", target: "AJAX", type: ""},
+	];
+	
+	links[11]=[ 
+		  {source: "Programming", target: "Java", type: ""},
+		  {source: "Java", target: "Visual J++", type: ""},
+		  {source: "Java", target: "Visual J#", type: ""},
+		  {source: "Java", target: "JCreator Pro", type: ""},
+		  {source: "Java", target: "JMS", type: ""},
+		  {source: "Java", target: "JSF", type: ""},
+		  {source: "Java", target: "JSP", type: ""},
+		  {source: "Java", target: "RMI", type: ""},
+		  {source: "Java", target: "Spring", type: ""},
+		  {source: "Web Technology", target: "JavaScript", type: ""},
+		  {source: "JavaScript", target: "AJAX", type: ""},
+	];
+	
+	links[12]=[ 
+		  {source: "C++", target: "C#", type: ""},
+		  {source: "C#", target: "Visual C#", type: ""},
+		  {source: "Web Technology", target: "JavaScript", type: ""},
+		  {source: "JavaScript", target: "AJAX", type: ""},
+	];
+	
+	links[13]=[ 
+		  {source: "Programming", target: "Linux", type: ""},
+		  {source: "Linux", target: "A+", type: ""},
+		  {source: "Programming", target: "C", type: ""},
+		  {source: "C", target: "Win32", type: ""},
+		  {source: "Programming", target: "C++", type: ""},
+		  {source: "C++", target: "C#", type: ""},
+		  {source: "C++", target: "Visual C++", type: ""},
+		  {source: "C++", target: "DirectX", type: ""},
+		  {source: "C++", target: "Kylix", type: ""},
+		  {source: "C++", target: "MFC", type: ""},
+		  {source: "C++", target: "Simula", type: ""},
+		  {source: "Programming", target: "Python", type: ""},
+	];
+	links[14]=[ 
+		  {source: "Programming", target: "Linux", type: ""},
+		  {source: "Linux", target: "A+", type: ""},
+		  {source: "Programming", target: "C", type: ""},
+		  {source: "C", target: "Win32", type: ""},
 	];
 	var nodes = {};
 	// Compute the distinct nodes from the links.
@@ -411,7 +521,7 @@ function redrawMap (mapNum){
 	</div>
 
 	<div id="footer-wrapper">
-		<footer id="footer"><p>National Central University, Taoyuan, TaiwanA</p></footer>
+		<footer id="footer"><p>National Central University, Taoyuan, TaiwanB</p></footer>
 	</div>
 
 </body>
