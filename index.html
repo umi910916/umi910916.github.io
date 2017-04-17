@@ -4,12 +4,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Online Courses Recommendation System</title>
 	<style type="text/css">
-
 		/* Layout */
 		body {
 			min-width: 630px;
 		}
-
 		#container {
 			padding-left: 200px;
 			padding-right: 190px;
@@ -47,17 +45,14 @@
 		* html #left {
 			left: 150px;
 		}
-
 		/* Make the columns the same height as each other */
 		#container {
 			overflow: hidden;
 		}
-
 		#container .column {
 			padding-bottom: 1001em;
 			margin-bottom: -1000em;
 		}
-
 		/* Fix for the footer */
 		* html body {
 			overflow: hidden;
@@ -71,7 +66,6 @@
 			margin-bottom: -10000px;
 			background: #fff;
 		}
-
 		/* Aesthetics */
 		body {
 			margin: 0;
@@ -83,7 +77,6 @@
 		p {
 			color: #555;
 		}
-
 		nav ul {
 			list-style-type: none;
 			margin: 0;
@@ -94,13 +87,11 @@
 			color: darkgreen;
 			text-decoration: none;
 		}
-
 		#header, #footer {
 			font-size: large;
 			padding: 0.3em;
 			background: #BCCE98;
 		}
-
 		#left {
 			background: #DAE9BC;
 		}
@@ -108,11 +99,9 @@
 		#right {
 			background: #F7FDEB;
 		}
-
 		#center {
 			background: #fff;
 		}
-
 		#container .column {
 			padding-top: 1em;
 		}
@@ -146,7 +135,6 @@
 		    border: 1px solid #ccc;
 		    box-sizing: border-box;
 		}
-
 		button {
 		    background-color: #4CAF50;
 		    color: white;
@@ -156,36 +144,29 @@
 		    cursor: pointer;
 		    width: 100%;
 		}
-
 		button:hover {
 		    opacity: 0.8;
 		}
-
 		.cancelbtn {
 		    width: auto;
 		    padding: 10px 18px;
 		    background-color: #f44336;
 		}
-
 		.imgcontainer {
 		    text-align: center;
 		    margin: 24px 0 12px 0;
 		}
-
 		img.avatar {
 		    width: 40%;
 		    border-radius: 50%;
 		}
-
 		.container {
 		    padding: 16px;
 		}
-
 		span.psw {
 		    float: right;
 		    padding-top: 16px;
 		}
-
 		/* Change styles for span and cancel button on extra small screens */
 		@media screen and (max-width: 300px) {
 		    span.psw {
@@ -199,14 +180,28 @@
 	</style>
 	
 	<script src="//d3js.org/d3.v3.min.js"></script>
-	<script type="text/javascript" src="maps.json"></script>
-	
 	<script>
 	var mapNum=0;
   function renew(index){
 	 //changes
 	 // for(var i=0;i<index.length;i++)
-	  document.getElementById("change").innerHTML = index;
+	 
+	  if (index == 0){
+	    document.getElementById("change").innerHTML = "CHANGE to map A!!";
+		  
+	  }else if (index == 1){
+	    document.getElementById("change").innerHTML = "CHANGE to map B!!";
+		  
+	  }else if (index == 2){
+	    document.getElementById("change").innerHTML = "CHANGE to map C!!";
+		  
+	  }else if (index == 3){
+	    document.getElementById("change").innerHTML = "CHANGE to map D!!";
+		  
+	  }else if (index == 4){
+	    document.getElementById("change").innerHTML = "CHANGE to map E!!";
+		  
+	  }
 	  d3.select("#coursemap").html("");
 	  redrawMap(index);
 	  
@@ -214,14 +209,55 @@
   }
 function redrawMap (mapNum){
 	// http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/
-	var maplinks = JSON.parse(maps.json);
-	
-	
-	links = maplinks[mapNum];
-	
+	links = new Array();
+	links[0] = [
+	  {source: "Programming", target: "Java", type: ""},
+	  {source: "Programming", target: "PHP", type: ""},
+	  {source: "Programming", target: "Visual Studio", type: ""},
+	  {source: "Programming", target: "Visual Basic", type: ""},
+	  {source: "Java", target: "Visual J++", type: ""},
+	  {source: "Java", target: "Visual J#", type: ""},
+	  {source: "Java", target: "JCreator Pro", type: ""},
+	  {source: "Java", target: "JMS", type: ""},
+	  {source: "Java", target: "JSF", type: ""},
+	  {source: "Java", target: "JSP", type: ""},
+	  {source: "JSP", target: "Struts", type: ""},
+	  {source: "Java", target: "RMI", type: ""},
+	  {source: "Java", target: "Spring", type: ""},
+	  {source: "PHP", target: "PECL", type: ""},
+	  {source: "Visual Studio", target: "Visual SourceSafe", type: ""},
+	  {source: "Visual Studio", target: "Visual Studio .net", type: ""},
+	  {source: "Visual Basic", target: "Visual Basic .net", type: ""},
+	  {source: "Visual Basic", target: "VBA", type: ""}
+	];
+	links[1] = [
+	  {source: "Programming", target: "Java", type: ""},
+	  {source: "Programming", target: "PHP", type: ""},
+	  {source: "Programming", target: "Visual Studio", type: ""},
+	  {source: "Programming", target: "Visual Basic", type: ""},
+	];
+	links[2] = [
+	  {source: "Java", target: "Visual J++", type: ""},
+	  {source: "Java", target: "Visual J#", type: ""},
+	  {source: "Java", target: "JCreator Pro", type: ""},
+	  {source: "Java", target: "JMS", type: ""},
+	];
+	links[3] = [
+	  {source: "Java", target: "JSF", type: ""},
+	  {source: "Java", target: "JSP", type: ""},
+	  {source: "JSP", target: "Struts", type: ""},
+	  {source: "Java", target: "RMI", type: ""},
+	  {source: "Java", target: "Spring", type: ""},
+	];
+	links[4] = [
+	  {source: "Visual Studio", target: "Visual SourceSafe", type: ""},
+	  {source: "Visual Studio", target: "Visual Studio .net", type: ""},
+	  {source: "Visual Basic", target: "Visual Basic .net", type: ""},
+	  {source: "Visual Basic", target: "VBA", type: ""}
+	];
 	var nodes = {};
 	// Compute the distinct nodes from the links.
-	links.forEach(function(link) {
+	links[mapNum].forEach(function(link) {
 	  link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
 	  link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
 	});
@@ -229,7 +265,7 @@ function redrawMap (mapNum){
 	    height = 500;
 	var force = d3.layout.force()
 	    .nodes(d3.values(nodes))
-	    .links(links)
+	    .links(links[mapNum])
 	    .size([width, height])
 	    .linkDistance(60)
 	    .charge(-300)
@@ -350,7 +386,7 @@ function redrawMap (mapNum){
 	</div>
 
 	<div id="footer-wrapper">
-		<footer id="footer"><p>National Central University, Taoyuan, TaiwanE</p></footer>
+		<footer id="footer"><p>National Central University, Taoyuan, TaiwanL</p></footer>
 	</div>
 
 </body>
