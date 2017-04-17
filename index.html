@@ -200,6 +200,7 @@
 	
 	<script src="//d3js.org/d3.v3.min.js"></script>
 	<script type="text/javascript" src="maps.json"></script>
+	<script type="text/javascript" src="jsmaps.js"></script>
 	<script>
 	var mapNum=0;
   function renew(index){
@@ -216,7 +217,7 @@ function redrawMap (mapNum){
 	var maplinks = JSON.parse(maps);
 	
 	
-	links = maplinks[index];
+	links = maplinks[mapNum];
 	
 	var nodes = {};
 	// Compute the distinct nodes from the links.
@@ -349,7 +350,7 @@ function redrawMap (mapNum){
 	</div>
 
 	<div id="footer-wrapper">
-		<footer id="footer"><p>National Central University, Taoyuan, TaiwanB</p></footer>
+		<footer id="footer"><p>National Central University, Taoyuan, TaiwanC</p></footer>
 	</div>
 
 </body>
