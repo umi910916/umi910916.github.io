@@ -1,4 +1,4 @@
-[
+var maps = [
 	  {source: "Programming", target: "Java", type: ""},
 	  {source: "Java", target: "Visual J++", type: ""},
 	  {source: "Java", target: "Visual J#", type: ""},
@@ -85,4 +85,4 @@
 	  {source: "Programming", target: "Visual Studio", type: ""},
 	  {source: "Programming", target: "Visual Basic", type: ""},
 	
-	]
+	];
