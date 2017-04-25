@@ -453,7 +453,7 @@ function redrawMap (mapNum){
 	  link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
 	  link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
 	});
-	var width = 800,
+	var width = 500,
 	    height = 500;
 	var force = d3.layout.force()
 	    .nodes(d3.values(nodes))
@@ -607,7 +607,7 @@ function redrawMap (mapNum){
 	</div>
 
 	<div id="footer-wrapper">
-		<footer id="footer"><p>National Central University, Taoyuan, TaiwanS</p></footer>
+		<footer id="footer"><p>National Central University, Taoyuan, TaiwanT</p></footer>
 	</div>
 
 </body>
