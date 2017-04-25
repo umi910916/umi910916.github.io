@@ -497,6 +497,9 @@ function redrawMap (mapNum){
 	      .duration(750)
 	      .attr("r", 16);
 	}
+	function mouseclick(){
+	  window.open('https://www.edx.org/course?search_query=java', '_blank');
+	}
 	function mouseout() {
 	  d3.select(this).select("circle").transition()
 	      .duration(750)
@@ -603,7 +606,7 @@ function redrawMap (mapNum){
 	</div>
 
 	<div id="footer-wrapper">
-		<footer id="footer"><p>National Central University, Taoyuan, TaiwanC</p></footer>
+		<footer id="footer"><p>National Central University, Taoyuan, TaiwanD</p></footer>
 	</div>
 
 </body>
