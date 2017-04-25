@@ -476,6 +476,7 @@ function redrawMap (mapNum){
 	    .attr("class", "node")
 	    .on("mouseover", mouseover)
 	    .on("mouseout", mouseout)
+	    .on("mouseclick", mouseclick)
 	    .call(force.drag);
 	node.append("circle")
 	    .attr("r", 8);
@@ -606,7 +607,7 @@ function redrawMap (mapNum){
 	</div>
 
 	<div id="footer-wrapper">
-		<footer id="footer"><p>National Central University, Taoyuan, TaiwanD</p></footer>
+		<footer id="footer"><p>National Central University, Taoyuan, TaiwanE</p></footer>
 	</div>
 
 </body>
