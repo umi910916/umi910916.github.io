@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Online Courses Recommendation System</title>
+	<style type="text/css">
+		/* Layout */
+		body {
+			min-width: 630px;
+		}
+		#container {
+			padding-left: 200px;
+			padding-right: 190px;
+		}
+		
+		#container .column {
+			position: relative;
+			float: left;
+		}
+		
+		#center {
+			padding: 10px 20px;
+			width: 100%;
+		}
+		
+		#left {
+			width: 180px;
+			padding: 0 10px;
+			right: 240px;
+			margin-left: -100%;
+		}
+		
+		#right {
+			width: 300px;
+			padding: 0 10px;
+			left:-170px;
+			margin-right: -100%;
+		}
+		
+		#footer {
+			clear: both;
+		}
+		
+		/* IE hack */
+		* html #left {
+			left: 150px;
+		}
+		/* Make the columns the same height as each other */
+		#container {
+			overflow: hidden;
+		}
+		#container .column {
+			padding-bottom: 1001em;
+			margin-bottom: -1000em;
+		}
+		/* Fix for the footer */
+		* html body {
+			overflow: hidden;
+		}
+		
+		* html #footer-wrapper {
+			float: left;
+			position: fixed;
+			width: 100%;
+			padding-bottom: 10010px;
+			margin-bottom: -10000px;
+			background: #fff;
+		}
+		/* Aesthetics */
+		body {
+			margin: 0;
+			padding: 0;
+			font-family:Sans-serif;
+			line-height: 1.5em;
+		}
+		
+		p {
+			color: #555;
+		}
+		nav ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+		
+		nav ul a {
+			color: darkgreen;
+			text-decoration: none;
+		}
+		#header, #footer {
+			font-size: large;
+			padding: 0.3em;
+			background: #BCCE98;
+		}
+		#left {
+			background: #DAE9BC;
+		}
+		
+		#right {
+			background: #F7FDEB;
+		}
+		#center {
+			background: #fff;
+		}
+		#container .column {
+			padding-top: 1em;
+		}
+		
+	</style>
+	
+	<style>
+		.link {
+		  fill: none;
+		  stroke: #666;
+		  stroke-width: 1.5px;
+		}
+		.node circle {
+		  fill: #ccc;
+		  stroke: #fff;
+		  stroke-width: 1.5px;
+		}
+		text {
+		  font: 10px sans-serif;
+		  pointer-events: none;
+		}
+	</style>
+	
+	<style>
+		
+		input[type=text], input[type=password] {
+		    width: 100%;
+		    padding: 12px 20px;
+		    margin: 8px 0;
+		    display: inline-block;
+		    border: 1px solid #ccc;
+		    box-sizing: border-box;
+		}
+		button {
+		    background-color: #4CAF50;
+		    color: white;
+		    padding: 14px 20px;
+		    margin: 8px 0;
+		    border: none;
+		    cursor: pointer;
+		    width: 100%;
+		}
+		button:hover {
+		    opacity: 0.8;
+		}
+		.cancelbtn {
+		    width: auto;
+		    padding: 10px 18px;
+		    background-color: #f44336;
+		}
+		.imgcontainer {
+		    text-align: center;
+		    margin: 24px 0 12px 0;
+		}
+		img.avatar {
+		    width: 40%;
+		    border-radius: 50%;
+		}
+		.container {
+		    padding: 16px;
+		}
+		span.psw {
+		    float: right;
+		    padding-top: 16px;
+		}
+		/* Change styles for span and cancel button on extra small screens */
+		@media screen and (max-width: 300px) {
+		    span.psw {
+		       display: block;
+		       float: none;
+		    }
+		    .cancelbtn {
+		       width: 100%;
+		    }
+		}
+	</style>
+	
+	<script src="//d3js.org/d3.v3.min.js"></script>
+	<script>
+	var mapNum=0;
+  function renew(index){
+	 //changes
+	 // for(var i=0;i<index.length;i++)
+	 
+	  if (index == 0){
+	    document.getElementById("change").innerHTML = "CHANGE to map A!!";
+		  
+	  }else if (index == 1){
+	    document.getElementById("change").innerHTML = "CHANGE to map B!!";
+		  
+	  }else if (index == 2){
+	    document.getElementById("change").innerHTML = "CHANGE to map C!!";
+		  
+	  }else if (index == 3){
+	    document.getElementById("change").innerHTML = "CHANGE to map D!!";
+		  
+	  }else if (index == 4){
+	    document.getElementById("change").innerHTML = "CHANGE to map E!!";
+		  
+	  }
+	  d3.select("#coursemap").html("");
+	  redrawMap(index);
+	  
+	  
+  }
+function redrawMap (mapNum){
+	// http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/
+	links = new Array();
+	links[0]=[ 
+	  {source: "Programming", target: "C", type: ""},
+	  {source: "C", target: "Win32", type: ""},
+	  {source: "Programming", target: "Assembly", type: ""},
+	];
+	
+	links[1]=[ 
+		  {source: "ASP", target: "ASP.NET", type: ""},
+		  {source: "C++", target: "C#", type: ""},
+		  {source: "C#", target: "Visual C#", type: ""},
+		  {source: "Visual Studio", target: "Visual Studio .net", type: ""},
+		  {source: "Microsoft .net", target: "WinForm", type: ""},
+	];
+	links[2]=[ 
+		  {source: "Programming", target: "Java", type: ""},
+		  {source: "Java", target: "Visual J++", type: ""},
+		  {source: "Java", target: "Visual J#", type: ""},
+		  {source: "Java", target: "JCreator Pro", type: ""},
+		  {source: "Java", target: "JMS", type: ""},
+		  {source: "Java", target: "JSF", type: ""},
+		  {source: "Java", target: "JSP", type: ""},
+		  {source: "Java", target: "RMI", type: ""},
+		  {source: "Java", target: "Spring", type: ""},
+	];
+	links[3]=[ 
+		  {source: "Programming", target: "PHP", type: ""},
+		  {source: "PHP", target: "PECL", type: ""},
+		  {source: "Web Technology", target: "JavaScript", type: ""},
+		  {source: "JavaScript", target: "AJAX", type: ""},
+	];
+	links[4]=[ 
+		  {source: "Programming", target: "Java", type: ""},
+		  {source: "Java", target: "Visual J++", type: ""},
+		  {source: "Java", target: "Visual J#", type: ""},
+		  {source: "Java", target: "JCreator Pro", type: ""},
+		  {source: "Java", target: "JMS", type: ""},
+		  {source: "Java", target: "JSF", type: ""},
+		  {source: "Java", target: "JSP", type: ""},
+		  {source: "Java", target: "RMI", type: ""},
+		  {source: "Java", target: "Spring", type: ""},
+	];
+	links[5]=[ 
+		  {source: "Programming", target: "C", type: ""},
+		  {source: "C", target: "Win32", type: ""},
+	];
+	
+	links[6]=[ 
+		  {source: "Programming", target: "Java", type: ""},
+		  {source: "Java", target: "Visual J++", type: ""},
+		  {source: "Java", target: "Visual J#", type: ""},
+		  {source: "Java", target: "JCreator Pro", type: ""},
+		  {source: "Java", target: "JMS", type: ""},
+		  {source: "Java", target: "JSF", type: ""},
+		  {source: "Java", target: "JSP", type: ""},
+		  {source: "Java", target: "RMI", type: ""},
+		  {source: "Java", target: "Spring", type: ""},
+	];
+	
+	links[7]=[ 
+		  {source: "Programming", target: "Java", type: ""},
+		  {source: "Java", target: "Visual J++", type: ""},
+		  {source: "Java", target: "Visual J#", type: ""},
+		  {source: "Java", target: "JCreator Pro", type: ""},
+		  {source: "Java", target: "JMS", type: ""},
+		  {source: "Java", target: "JSF", type: ""},
+		  {source: "Java", target: "JSP", type: ""},
+		  {source: "Java", target: "RMI", type: ""},
+		  {source: "Java", target: "Spring", type: ""},
+	];
+	links[8]=[ 
+		  {source: "Programming", target: "Java", type: ""},
+		  {source: "Java", target: "Visual J++", type: ""},
+		  {source: "Java", target: "Visual J#", type: ""},
+		  {source: "Java", target: "JCreator Pro", type: ""},
+		  {source: "Java", target: "JMS", type: ""},
+		  {source: "Java", target: "JSF", type: ""},
+		  {source: "Java", target: "JSP", type: ""},
+		  {source: "Java", target: "RMI", type: ""},
+		  {source: "Java", target: "Spring", type: ""},
+	];
+	links[9]=[ 
+		  {source: "Programming", target: "Java", type: ""},
+		  {source: "Java", target: "Visual J++", type: ""},
+		  {source: "Java", target: "Visual J#", type: ""},
+		  {source: "Java", target: "JCreator Pro", type: ""},
+		  {source: "Java", target: "JMS", type: ""},
+		  {source: "Java", target: "JSF", type: ""},
+		  {source: "Java", target: "JSP", type: ""},
+		  {source: "Java", target: "RMI", type: ""},
+		  {source: "Java", target: "Spring", type: ""},
+	];
+	
+	links[10]=[ 
+		  {source: "Programming", target: "Linux", type: ""},
+		  {source: "Linux", target: "A+", type: ""},
+		  {source: "JavaScript", target: "AJAX", type: ""},
+		  {source: "Programming", target: "Java", type: ""},
+		  {source: "Java", target: "Visual J++", type: ""},
+		  {source: "Java", target: "Visual J#", type: ""},
+		  {source: "Java", target: "JCreator Pro", type: ""},
+		  {source: "Java", target: "JMS", type: ""},
+		  {source: "Java", target: "JSF", type: ""},
+		  {source: "Java", target: "JSP", type: ""},
+		  {source: "Java", target: "RMI", type: ""},
+		  {source: "Java", target: "Spring", type: ""},
+		  {source: "Java", target: "JSP", type: ""},
+		  {source: "JSP", target: "Struts", type: ""},
+		  {source: "Programming", target: "Python", type: ""},
+		  {source: "Java", target: "Spring", type: ""},
+		  {source: "JSP", target: "Struts", type: ""},
+		  {source: "Web Technology", target: "JavaScript", type: ""},
+		  {source: "JavaScript", target: "AJAX", type: ""},
+	];
+	
+	links[11]=[ 
+		  {source: "Programming", target: "Java", type: ""},
+		  {source: "Java", target: "Visual J++", type: ""},
+		  {source: "Java", target: "Visual J#", type: ""},
+		  {source: "Java", target: "JCreator Pro", type: ""},
+		  {source: "Java", target: "JMS", type: ""},
+		  {source: "Java", target: "JSF", type: ""},
+		  {source: "Java", target: "JSP", type: ""},
+		  {source: "Java", target: "RMI", type: ""},
+		  {source: "Java", target: "Spring", type: ""},
+		  {source: "Web Technology", target: "JavaScript", type: ""},
+		  {source: "JavaScript", target: "AJAX", type: ""},
+	];
+	
+	links[12]=[ 
+		  {source: "C++", target: "C#", type: ""},
+		  {source: "C#", target: "Visual C#", type: ""},
+		  {source: "Web Technology", target: "JavaScript", type: ""},
+		  {source: "JavaScript", target: "AJAX", type: ""},
+	];
+	
+	links[13]=[ 
+		  {source: "Programming", target: "Linux", type: ""},
+		  {source: "Linux", target: "A+", type: ""},
+		  {source: "Programming", target: "C", type: ""},
+		  {source: "C", target: "Win32", type: ""},
+		  {source: "Programming", target: "C++", type: ""},
+		  {source: "C++", target: "C#", type: ""},
+		  {source: "C++", target: "Visual C++", type: ""},
+		  {source: "C++", target: "DirectX", type: ""},
+		  {source: "C++", target: "Kylix", type: ""},
+		  {source: "C++", target: "MFC", type: ""},
+		  {source: "C++", target: "Simula", type: ""},
+		  {source: "Programming", target: "Python", type: ""},
+	];
+	links[14]=[ 
+		  {source: "Programming", target: "Linux", type: ""},
+		  {source: "Linux", target: "A+", type: ""},
+		  {source: "Programming", target: "C", type: ""},
+		  {source: "C", target: "Win32", type: ""},
+	];
+	links[29] = [
+	  {source: "Programming", target: "Java", type: ""},
+	  {source: "Java", target: "Visual J++", type: ""},
+	  {source: "Java", target: "Visual J#", type: ""},
+	  {source: "Java", target: "JCreator Pro", type: ""},
+	  {source: "Java", target: "JMS", type: ""},
+	  {source: "Java", target: "JSF", type: ""},
+	  {source: "Java", target: "JSP", type: ""},
+	  {source: "JSP", target: "Struts", type: ""},
+	  {source: "Java", target: "RMI", type: ""},
+	  {source: "Java", target: "Spring", type: ""},
+	  {source: "Programming", target: "PHP", type: ""},
+	  {source: "PHP", target: "PECL", type: ""},
+	  {source: "Programming", target: "Visual Studio", type: ""},
+	  {source: "Visual Studio", target: "Visual SourceSafe", type: ""},
+	  {source: "Visual Studio", target: "Visual Studio .net", type: ""},
+	  {source: "Programming", target: "Visual Basic", type: ""},
+	  {source: "Visual Basic", target: "Visual Basic .net", type: ""},
+	  {source: "Visual Basic", target: "VBA", type: ""},
+	  {source: "Programming", target: "C", type: ""},
+	  {source: "C", target: "Win32", type: ""},
+	  {source: "Programming", target: "C++", type: ""},
+	  {source: "C++", target: "C#", type: ""},
+	  {source: "C#", target: "Visual C#", type: ""},
+	  {source: "C++", target: "Visual C++", type: ""},
+	  {source: "Visual C++", target: "C++ .Net", type: ""},
+	  {source: "C++", target: "DirectX", type: ""},
+	  {source: "C++", target: "Kylix", type: ""},
+	  {source: "C++", target: "MFC", type: ""},
+	  {source: "C++", target: "Simula", type: ""},
+	  {source: "Programming", target: "ASP", type: ""},
+	  {source: "ASP", target: "ASP.NET", type: ""},
+	  {source: "Programming", target: "Lotus Notes", type: ""},
+	  {source: "Lotus Notes", target: "LotusScripts", type: ""},
+	  {source: "Programming", target: "xbase", type: ""},
+	  {source: "xbase", target: "Clipper", type: ""},
+	  {source: "xbase", target: "Fox Pro", type: ""},
+	  {source: "xbase", target: "FoxBASE+", type: ""},
+	  {source: "Programming", target: "CORBA", type: ""},
+	  {source: "CORBA", target: "COM/DCOM", type: ""},
+	  {source: "Programming", target: "Delphi", type: ""},
+	  {source: "Delphi", target: "Pascal", type: ""},
+	  {source: "Pascal", target: "ADA", type: ""},
+	  {source: "Programming", target: "Assembly", type: ""},
+	  {source: "Programming", target: "Microsoft .net", type: ""},
+	  {source: "Microsoft .net", target: "WinForm", type: ""},
+	  {source: "Programming", target: "TCL", type: ""},
+	  {source: "Programming", target: "SWIFT", type: ""},
+	  {source: "Programming", target: "ANSI C", type: ""},
+	  {source: "ANSI C", target: "Objective-C", type: ""},
+	  {source: "Programming", target: "Silverlight", type: ""},
+	  {source: "Programming", target: "LabVIEW", type: ""},
+	  {source: "Programming", target: "Smalltalk", type: ""},
+	  {source: "Programming", target: "Ruby", type: ""},
+	  {source: "Programming", target: "OS/400", type: ""},
+	  {source: "OS/400", target: "RPG", type: ""},
+	  {source: "Programming", target: "OS/2", type: ""},
+	  {source: "OS/2", target: "Rexx", type: ""},
+	  {source: "Programming", target: "Python", type: ""},
+	  {source: "Programming", target: "Perl", type: ""},
+	  {source: "Programming", target: "PeopleCode", type: ""},
+	  {source: "Programming", target: "PAL", type: ""},
+	  {source: "Programming", target: "Matlab", type: ""},
+	  {source: "Programming", target: "FORTRAN", type: ""},
+	  {source: "Programming", target: "COBOL", type: ""},
+	  {source: "Programming", target: "CGI", type: ""},
+	  {source: "Programming", target: "Linux", type: ""},
+	  {source: "Linux", target: "A+", type: ""},
+	  {source: "Programming", target: "Flash", type: ""},
+	  {source: "Flash", target: "ActionScript", type: ""},
+	  {source: "Programming", target: "Web Technology", type: ""},
+	  {source: "Web Technology", target: "JavaScript", type: ""},
+	  {source: "JavaScript", target: "AJAX", type: ""},
+	  {source: "Web Technology", target: "XML", type: ""},
+	  {source: "XML", target: "WML", type: ""},
+	  {source: "XML", target: "XSL", type: ""},
+	  {source: "XML", target: "XSLT", type: ""},
+	  {source: "Programming", target: "Database Design", type: ""},
+	  {source: "Database Design", target: "Sybase", type: ""},
+	  {source: "Sybase", target: "PowerBuilder", type: ""} 
+	];
+	
+	var nodes = {};
+	// Compute the distinct nodes from the links.
+	links[mapNum].forEach(function(link) {
+	  link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
+	  link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
+	});
+	var width = 500,
+	    height = 500;
+	var force = d3.layout.force()
+	    .nodes(d3.values(nodes))
+	    .links(links[mapNum])
+	    .size([width, height])
+	    .linkDistance(60)
+	    .charge(-300)
+	    .on("tick", tick)
+	    .start();
+	var svg = d3.select("#coursemap").append("svg")
+	    .attr("width", width)
+	    .attr("height", height);
+	var link = svg.selectAll(".link")
+	    .data(force.links())
+	  .enter().append("line")
+	    .attr("class", "link");
+	var node = svg.selectAll(".node")
+	    .data(force.nodes())
+	  .enter().append("g")
+	    .attr("class", "node")
+	    .on("mouseover", mouseover)
+	    .on("mouseout", mouseout)
+	    .call(force.drag);
+	node.append("circle")
+	    .attr("r", 8);
+	node.append("text")
+	    .attr("x", 12)
+	    .attr("dy", ".35em")
+	    .text(function(d) { return d.name; });
+	function tick() {
+	  link
+	      .attr("x1", function(d) { return d.source.x; })
+	      .attr("y1", function(d) { return d.source.y; })
+	      .attr("x2", function(d) { return d.target.x; })
+	      .attr("y2", function(d) { return d.target.y; });
+	  node
+	      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+	}
+	function mouseover() {
+	  d3.select(this).select("circle").transition()
+	      .duration(750)
+	      .attr("r", 16);
+	}
+	function mouseout() {
+	  d3.select(this).select("circle").transition()
+	      .duration(750)
+	      .attr("r", 8);
+	}
+}
+</script>
+	<script type="text/javascript">
+		/* =============================
+		This script generates sample text for the body content. 
+		You can remove this script and any reference to it. 
+		 ============================= */
+		var bodyText=["The smaller your reality, the more convinced you are that you know everything.", "If the facts don't fit the theory, change the facts.", "The past has no power over the present moment.", "This, too, will pass.", "</p><p>You will not be punished for your anger, you will be punished by your anger.", "Peace comes from within. Do not seek it without.", "<h3>Heading</h3><p>The most important moment of your life is now. The most important person in your life is the one you are with now, and the most important activity in your life is the one you are involved with now."]
+		function generateText(sentenceCount){
+			for (var i=0; i<sentenceCount; i++)
+			document.write(bodyText[Math.floor(Math.random()*7)]+" ")
+		}
+	</script>	
+</head>
+
+<body>
+
+	<header id="header"><p>Online Courses Recommendation System</p></header>
+
+	<div id="container">
+		
+		<main id="center" class="column">
+		<svg id = "coursemap" width = "500" height = "500">
+		</svg>
+		<h3>	
+		<a href="https://docs.google.com/forms/d/e/1FAIpQLSeyPlB8eWWikC6mwAWG7Xwfu-5CgsIfqOxuuBtjmPqYHACi9w/viewform?usp=sf_link">Send Feedbacks</a>
+		</h3>		
+											
+		</main>
+
+		<nav id="left" class="column">
+			<p id="change"> choose MAP  </p>
+	
+			 <form name="myForm">
+			    <p>Job Type：</p>
+			    <select size=30 style="width: 180px" onChange="renew(this.selectedIndex);">
+				<option value="typeA">1
+				<option value="typeB">2
+				<option value="typeC">3
+				<option value="typeD">4
+				<option value="typeE">5
+					<option value="typeA">6
+				<option value="typeB">7
+				<option value="typeC">8
+				<option value="typeD">9
+				<option value="typeE">10
+					<option value="typeA">11
+				<option value="typeB">12
+				<option value="typeC">13
+				<option value="typeD">14
+				<option value="typeE">15
+					<option value="typeA">16
+				<option value="typeB">17
+				<option value="typeC">18
+				<option value="typeD">19
+				<option value="typeE">20
+					<option value="typeA">21
+				<option value="typeB">22
+				<option value="typeC">23
+				<option value="typeD">24
+				<option value="typeE">25
+					<option value="typeA">26
+				<option value="typeB">27
+				<option value="typeC">28
+				<option value="typeD">29
+				<option value="typeE">30
+			    </select>
+			 </form>
+
+		</nav>
+
+		<div id="right" class="column" width="500">
+			
+
+			<form action="/action_page.php">
+			  <div class="imgcontainer">
+			  
+			  </div>
+
+			  <div class="container">
+			    <label><b>Username</b></label>
+			    <input type="text" placeholder="Enter Username" name="uname" required>
+
+			    <label><b>Password</b></label>
+			    <input type="password" placeholder="Enter Password" name="psw" required>
+
+			    <button type="submit">Login</button>
+			    <input type="checkbox" checked="checked"> Remember me
+			  </div>
+
+			  <div class="container">
+			    
+			    <span class="psw">Forgot <a href="#">password?</a></span>
+			  </div>
+			</form>
+		
+		</div>
+
+	</div>
+
+	<div id="footer-wrapper">
+		<footer id="footer"><p>National Central University, Taoyuan, TaiwanC</p></footer>
+	</div>
+
+</body>
+
+</html>
