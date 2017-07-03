@@ -219,14 +219,14 @@ function redrawMap (mapNum ,thisnum){
 	
 	links = new Array();
 	for (i =0; i<mydata[thisnum].length; i++){
-		links[thisnum][i] = mydata[thisnum][i].toolmap;
+		links[i] = mydata[thisnum][i].toolmap;
 	
 }	
 		
 	
 	var nodes = {};
 	// Compute the distinct nodes from the links.
-	links[thisnum][mapNum].forEach(function(link) {
+	links[mapNum].forEach(function(link) {
 	  link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
 	  link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
 	});
@@ -234,7 +234,7 @@ function redrawMap (mapNum ,thisnum){
 	    height = 500;
 	var force = d3.layout.force()
 	    .nodes(d3.values(nodes))
-	    .links(links[thisnum][mapNum])
+	    .links(links[mapNum])
 	    .size([width, height])
 	    .linkDistance(60)
 	    .charge(-300)
@@ -371,7 +371,7 @@ function redrawMap (mapNum ,thisnum){
 	<div id="footer-wrapper">
 		<footer id="footer">
 			<p>
-			National Central University, Taoyuan, TaiwaJ 
+			National Central University, Taoyuan, TaiwaK 
 			
 			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeyPlB8eWWikC6mwAWG7Xwfu-5CgsIfqOxuuBtjmPqYHACi9w/viewform?usp=sf_link">Send Feedbacks</a>
 		
