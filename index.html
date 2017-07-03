@@ -202,128 +202,27 @@
 	<script src="//d3js.org/d3.v3.min.js"></script>
 	<script type="text/javascript" src="testdata.json"></script>	
 	
-</head>
-
-<body>
-
-	<header id="header"><p>Online Courses Recommendation System</p></header>
-
-	<div id="container">
-		
-		<main id="center" class="column">
-		<svg id = "coursemap" width = "500" height = "500">
-		</svg>
-				
-											
-		</main>
-
-		<nav id="left" class="column">		
-			<form name = "myform">
-			Recorded Date:				
-				<select size=18 style=width: 180px onChange="changejob(this.selectedIndex);">
-					<option value="20161003">2016/10/03
-					<option value="20161017">2016/10/17
-					<option value="20161031">2016/10/31
-					<option value="20161114">2016/11/14
-					<option value="20161128">2016/11/28
-					<option value="20161212">2016/12/12
-					<option value="20161216">2016/12/16
-					<option value="20161226">2016/12/26
-					<option value="20170102">2017/01/02
-					<option value="20170116">2017/01/16
-					<option value="20170130">2017/01/30
-					<option value="20170213">2017/02/13
-					<option value="20170227">2017/02/27
-					<option value="20170306">2017/03/06
-					<option value="20170320">2017/03/20
-					<option value="20170403">2017/04/03
-					<option value="20170417">2017/04/17
-					<option value="20170501">2017/05/01
-				</select>
-				Job Catagories:
-			    	<select name = "member" size=18 style=width: 180px onChange="renew(this.selectedIndex);">
-					<option value=""> Select dates
-				</select>
-			</form>
-		
-			
-		</nav>
-
-		<div id="right" class="column" width="500">
-			
-			<input type="text" name="search" placeholder="Search..">
-			<br><a href="jobdetail">actual job title A</a>
-			<br><a href="jobdetail">actual job title B</a>
-			<br><a href="jobdetail">actual job title C</a>
-			<br><a href="jobdetail">actual job title D</a>
-		
-			
-			
-			
-		
-		</div>
-
-	</div>
-
-	<div id="footer-wrapper">
-		<footer id="footer">
-			<p>
-			National Central University, Taoyuan, TaiwanQQQ 
-			
-			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeyPlB8eWWikC6mwAWG7Xwfu-5CgsIfqOxuuBtjmPqYHACi9w/viewform?usp=sf_link">Send Feedbacks</a>
-		
-			</p>
-		</footer>
-	</div>
-<script>
+	<script>
 	var mapNum=0;
   function renew(index){
 	 //changes
-	 // for(var i=0;i<index.length;i++)
-	 
+	 // for(var i=0;i<index.length;i++)	 
 	  if (index == 0){
 	    document.getElementById("change").innerHTML = "CHANGE to map A!!";
 		  
-	  }else if (index == 1){
-	    document.getElementById("change").innerHTML = "CHANGE to map B!!";
-		  
-	  }else if (index == 2){
-	    document.getElementById("change").innerHTML = "CHANGE to map C!!";
-		  
-	  }else if (index == 3){
-	    document.getElementById("change").innerHTML = "CHANGE to map D!!";
-		  
-	  }else if (index == 4){
-	    document.getElementById("change").innerHTML = "CHANGE to map E!!";
-		  
 	  }
 	  d3.select("#coursemap").html("");
-	  redrawMap(index);
-	  
-	  
+	  redrawMap(index);	  
   }
 function redrawMap (mapNum){
-	// http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/
-	
-	var mydata = JSON.parse(testdata);
-	
+	// http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/	
+	var mydata = JSON.parse(testdata);	
 	links = new Array();
 	for (i =0; i<mydata.length; i++){
 		links[i] = mydata[i].toolmap;
 	
-	}
-	
-	jobcate = new Array();
-	jobcate[0]=mydata.category
-	
-function changejob(index){
-	for(var i=0;i<jobcate[index].length;i++)
-		document.myForm.member.options[i]=new Option(jobcate[index][i], jobcate[index][i]);	// 設定新選項
-	document.myForm.member.length=jobcate[index].length;	// 刪除多餘的選項
-}
-	
-	
-	
+}	
+		
 	
 	var nodes = {};
 	// Compute the distinct nodes from the links.
@@ -385,9 +284,88 @@ function changejob(index){
 	      .attr("r", 8);
 	}
 }
-</script>
+</script>	
+</head>
+
+<body>	
+	<header id="header"><p>Online Courses Recommendation System</p></header>
+
+	<div id="container">
+		
+		<main id="center" class="column">
+		<svg id = "coursemap" width = "500" height = "500">
+		</svg>
+				
+											
+		</main>
+
+		<nav id="left" class="column">		
+			<form name = "myform">
+			<p>Recorded Date:				
+				<select size=18 style=width: 180px onChange="changejob(this.selectedIndex);">
+					<option value="20161003">2016/10/03
+					<option value="20161017">2016/10/17
+					<option value="20161031">2016/10/31
+					<option value="20161114">2016/11/14
+					<option value="20161128">2016/11/28
+					<option value="20161212">2016/12/12
+					<option value="20161216">2016/12/16
+					<option value="20161226">2016/12/26
+					<option value="20170102">2017/01/02
+					<option value="20170116">2017/01/16
+					<option value="20170130">2017/01/30
+					<option value="20170213">2017/02/13
+					<option value="20170227">2017/02/27
+					<option value="20170306">2017/03/06
+					<option value="20170320">2017/03/20
+					<option value="20170403">2017/04/03
+					<option value="20170417">2017/04/17
+					<option value="20170501">2017/05/01
+				</select>
+				<p>Job Catagories:
+			    	<select name = "member" size=18 style=width: 180px onChange="renew(this.selectedIndex);">
+					<option value=""> Select dates
+				</select>
+			</form>
+			<script>
+			jobcate = new Array();
+			jobcate[0]=mydata.category
 	
-	
+			function changejob(index){
+				for(var i=0;i<jobcate[index].length;i++)
+					document.myForm.member.options[i]=new Option(jobcate[index][i], jobcate[index][i]);	// 設定新選項
+				document.myForm.member.length=jobcate[index].length;	// 刪除多餘的選項
+			}
+			</script>
+			
+		</nav>
+
+		<div id="right" class="column" width="500">
+			
+			<input type="text" name="search" placeholder="Search..">
+			<br><a href="jobdetail">actual job title A</a>
+			<br><a href="jobdetail">actual job title B</a>
+			<br><a href="jobdetail">actual job title C</a>
+			<br><a href="jobdetail">actual job title D</a>
+		
+			
+			
+			
+		
+		</div>
+
+	</div>
+
+	<div id="footer-wrapper">
+		<footer id="footer">
+			<p>
+			National Central University, Taoyuan, TaiwanRRR 
+			
+			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeyPlB8eWWikC6mwAWG7Xwfu-5CgsIfqOxuuBtjmPqYHACi9w/viewform?usp=sf_link">Send Feedbacks</a>
+		
+			</p>
+		</footer>
+	</div>	
 	
 </body>
 
