@@ -325,18 +325,21 @@ function redrawMap (mapNum){
 				</select>
 			</form>
 			<script>
-			var myjobdata = JSON.parse(testdata);
-			var myjobdata2 = JSON.parse(testdata2);
+			myjobdata = new Array();
+			myjobdata[0] = JSON.parse(testdata);
+			myjobdata[1] = JSON.parse(testdata2);
 			
 			jobcate = new Array();
 			temp = new Array();
-			for (i =0; i<myjobdata.length; i++){
-				temp.push(myjobdata[i].category);
+			for (j=0; j<18; j++){
+				for (i =0; i<myjobdata[j].length; i++){
+					temp.push(myjobdata[j][i].category);
+				}
+				jobcate[j]=temp;
 			}
-			jobcate[0] = temp;
-			jobcate[1] = myjobdata2;
 			console.log(jobcate[0]);
 			function changejob(index){
+				thisdatenum = index;
 				for(var i=0;i<jobcate[index].length;i++)
 					document.myform.member.options[i]=new Option(jobcate[index][i], jobcate[index][i]);	// 設定新選項
 				document.myform.member.length=jobcate[index].length;	// 刪除多餘的選項
@@ -364,7 +367,7 @@ function redrawMap (mapNum){
 	<div id="footer-wrapper">
 		<footer id="footer">
 			<p>
-			National Central University, Taoyuan, TaiwaFFF 
+			National Central University, Taoyuan, TaiwaGGG 
 			
 			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeyPlB8eWWikC6mwAWG7Xwfu-5CgsIfqOxuuBtjmPqYHACi9w/viewform?usp=sf_link">Send Feedbacks</a>
 		
