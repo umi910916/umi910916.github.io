@@ -331,43 +331,20 @@ function redrawMap (mapNum){
 
 		<nav id="left" class="column">
 			<p id="change"> choose MAP  </p>
-	
+			<script>
+				txt="";
 			 <form name="myForm">
 			    <p>Job Type：</p>
 			    <select size=30 style="width: 180px" onChange="renew(this.selectedIndex);">
-				<option value="typeA">電腦系統分析師
-				<option value="typeB">Internet程式設計師
-				<option value="typeC">軟體設計工程師
-				<option value="typeD">Internet程式設計師
-				<option value="typeE">軟體設計工程師
-					<option value="typeA">演算法開發工程師
-				<option value="typeB">軟體設計工程師
-				<option value="typeC">軟體設計工程師
-				<option value="typeD">軟體設計工程師
-				<option value="typeE">軟體設計工程師
-					<option value="typeA">軟體專案主管
-				<option value="typeB">Internet程式設計師
-				<option value="typeC">Internet程式設計師
-				<option value="typeD">電腦系統分析師
-				<option value="typeE">電腦系統分析師
-					<option value="typeA">16
-				<option value="typeB">17
-				<option value="typeC">18
-				<option value="typeD">19
-				<option value="typeE">20
-					<option value="typeA">21
-				<option value="typeB">22
-				<option value="typeC">23
-				<option value="typeD">24
-				<option value="typeE">25
-					<option value="typeA">26
-				<option value="typeB">27
-				<option value="typeC">28
-				<option value="typeD">29
-				<option value="typeE">30
+				for (each in mydata){
+				    txt += "<option>" + mydata[each].catagory;
+				    
+				    }
+				    
+				
 			    </select>
 			 </form>
-
+			</script>
 		</nav>
 
 		<div id="right" class="column" width="500">
@@ -389,7 +366,7 @@ function redrawMap (mapNum){
 	<div id="footer-wrapper">
 		<footer id="footer">
 			<p>
-			National Central University, Taoyuan, TaiwanEEE  
+			National Central University, Taoyuan, TaiwanFFF  
 			
 			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeyPlB8eWWikC6mwAWG7Xwfu-5CgsIfqOxuuBtjmPqYHACi9w/viewform?usp=sf_link">Send Feedbacks</a>
 		
