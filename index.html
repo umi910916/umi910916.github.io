@@ -333,7 +333,7 @@ function redrawMap (mapNum){
 			jobcate[0]=myjobdata.category
 	
 			function changejob(index){
-				for(var i=0;i<jobcate[index].length;i++)
+				for(var i=0;i<jobcate.length;i++)
 					document.myForm.member.options[i]=new Option(jobcate[index][i], jobcate[index][i]);	// 設定新選項
 				document.myForm.member.length=jobcate[index].length;	// 刪除多餘的選項
 			}
@@ -360,7 +360,7 @@ function redrawMap (mapNum){
 	<div id="footer-wrapper">
 		<footer id="footer">
 			<p>
-			National Central University, Taoyuan, TaiwanSSS 
+			National Central University, Taoyuan, TaiwaTTT 
 			
 			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeyPlB8eWWikC6mwAWG7Xwfu-5CgsIfqOxuuBtjmPqYHACi9w/viewform?usp=sf_link">Send Feedbacks</a>
 		
