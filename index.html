@@ -200,6 +200,7 @@
 	</style>
 	
 	<script src="//d3js.org/d3.v3.min.js"></script>
+	<script type="text/javascript" src="testdata.json"></script>
 	<script>
 	var mapNum=0;
   function renew(index){
@@ -229,12 +230,10 @@
   }
 function redrawMap (mapNum){
 	// http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/
+	var mydata = JSON.parse(testdata)
+	
 	links = new Array();
-	links[0]=[ 
-	  {source: "Programming", target: "C", type: ""},
-	  {source: "C", target: "Win32", type: ""},
-	  {source: "Programming", target: "Assembly", type: ""},
-	];
+	links[0]= testdata[0].toolmap
 	
 	links[1]=[ 
 		  {source: "ASP", target: "ASP.NET", type: ""},
@@ -614,7 +613,7 @@ function redrawMap (mapNum){
 	<div id="footer-wrapper">
 		<footer id="footer">
 			<p>
-			National Central University, Taoyuan, TaiwanU  
+			National Central University, Taoyuan, TaiwanAAA  
 			
 			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeyPlB8eWWikC6mwAWG7Xwfu-5CgsIfqOxuuBtjmPqYHACi9w/viewform?usp=sf_link">Send Feedbacks</a>
 		
