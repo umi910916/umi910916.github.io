@@ -201,7 +201,8 @@
 	
 	<script src="//d3js.org/d3.v3.min.js"></script>
 	<script type="text/javascript" src="testdata.json"></script>	
-	<script type="text/javascript" src="testdata2.json"></script>	
+	<script type="text/javascript" src="testdata2.json"></script>
+	<script type="text/javascript" src="r1003.json"></script>
 	<script>
 	var mapNum=0;
   function renew(index, thisnum){
@@ -214,7 +215,7 @@
 function redrawMap (mapNum ,thisnum){
 	// http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/	
 	mydata = new Array();
-	mydata[0] = JSON.parse(testdata);
+	mydata[0] = JSON.parse(r1003);
 	mydata[1] = JSON.parse(testdata2);	
 	
 	links = new Array();
@@ -329,7 +330,7 @@ function redrawMap (mapNum ,thisnum){
 			</form>
 			<script>
 			myjobdata = new Array();
-			myjobdata[0] = JSON.parse(testdata);
+			myjobdata[0] = JSON.parse(r1003);
 			myjobdata[1] = JSON.parse(testdata2);
 			
 			jobcate = new Array();
