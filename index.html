@@ -329,8 +329,8 @@ function redrawMap (mapNum){
 			var myjobdata2 = JSON.parse(testdata2);
 			
 			jobcate = new Array();
-			jobcate[0] = myjobdata['category'];
-			jobcate[1] = myjobdata['category'];
+			jobcate[0] = myjobdata;
+			jobcate[1] = myjobdata2;
 			console.log(jobcate[0]);
 			function changejob(index){
 				for(var i=0;i<jobcate[index].length;i++)
@@ -360,7 +360,7 @@ function redrawMap (mapNum){
 	<div id="footer-wrapper">
 		<footer id="footer">
 			<p>
-			National Central University, Taoyuan, TaiwaDDD 
+			National Central University, Taoyuan, TaiwaEEE 
 			
 			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeyPlB8eWWikC6mwAWG7Xwfu-5CgsIfqOxuuBtjmPqYHACi9w/viewform?usp=sf_link">Send Feedbacks</a>
 		
