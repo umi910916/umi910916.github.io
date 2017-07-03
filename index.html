@@ -239,6 +239,15 @@ function redrawMap (mapNum){
 	
 	}
 	
+	jobcate = new Array();
+	jobcate[0]=mydata.category
+	
+function changejob(index){
+	for(var i=0;i<jobcate[index].length;i++)
+		document.myForm.member.options[i]=new Option(jobcate[index][i], jobcate[index][i]);	// 設定新選項
+	document.myForm.member.length=jobcate[index].length;	// 刪除多餘的選項
+}
+	
 	
 	
 	
@@ -321,7 +330,7 @@ function redrawMap (mapNum){
 
 		<nav id="left" class="column">		
 			<form name = "myform">
-			Please select recorded date:				
+			Recorded Date:				
 				<select size=18 style=width: 180px onChange="changejob(this.selectedIndex);">
 					<option value="20161003">2016/10/03
 					<option value="20161017">2016/10/17
@@ -342,23 +351,12 @@ function redrawMap (mapNum){
 					<option value="20170417">2017/04/17
 					<option value="20170501">2017/05/01
 				</select>
-				Job catagories:
+				Job Catagories:
 			    	<select name = "member" size=18 style=width: 180px onChange="renew(this.selectedIndex);">
 					<option value=""> Select dates
 				</select>
 			</form>
-			
-			<script>
-			jobcate = new Array();
-				jobcate[0]=mydata.category
-			function changejob(index){
-				for(var i=0;i<jobcate[index].length;i++)
-					document.myForm.member.options[i]=new Option(jobcate[index][i], jobcate[index][i]);	// 設定新選項
-				document.myForm.member.length=jobcate[index].length;	// 刪除多餘的選項
-			}
-			
-			
-			</script>
+		
 			
 		</nav>
 
@@ -381,7 +379,7 @@ function redrawMap (mapNum){
 	<div id="footer-wrapper">
 		<footer id="footer">
 			<p>
-			National Central University, Taoyuan, TaiwanOOO 
+			National Central University, Taoyuan, TaiwanPPP 
 			
 			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeyPlB8eWWikC6mwAWG7Xwfu-5CgsIfqOxuuBtjmPqYHACi9w/viewform?usp=sf_link">Send Feedbacks</a>
 		
