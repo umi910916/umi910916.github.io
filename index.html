@@ -203,6 +203,8 @@
 	<script type="text/javascript" src="testdata.json"></script>	
 	<script type="text/javascript" src="testdata2.json"></script>
 	<script type="text/javascript" src="r1003.json"></script>
+	<script type="text/javascript" src="r1017.json"></script>
+	
 	<script>
 	var mapNum=0;
   function renew(index, thisnum){
@@ -216,7 +218,8 @@ function redrawMap (mapNum ,thisnum){
 	// http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/	
 	mydata = new Array();
 	mydata[0] = JSON.parse(r1003);
-	mydata[1] = JSON.parse(testdata2);	
+	mydata[1] = JSON.parse(r1017);
+	mydata[2] = JSON.parse(testdata2);	
 	
 	links = new Array();
 	for (i =0; i<mydata[thisnum].length; i++){
@@ -331,7 +334,8 @@ function redrawMap (mapNum ,thisnum){
 			<script>
 			myjobdata = new Array();
 			myjobdata[0] = JSON.parse(r1003);
-			myjobdata[1] = JSON.parse(testdata2);
+			myjobdata[1] = JSON.parse(r1017);
+			myjobdata[2] = JSON.parse(testdata2);
 			
 			jobcate = new Array();
 			temp = new Array();
@@ -358,7 +362,7 @@ function redrawMap (mapNum ,thisnum){
 	<div id="footer-wrapper">
 		<footer id="footer">
 			<p>
-			National Central University, Taoyuan, TaiwaK 
+			National Central University, Taoyuan, TaiwaJ 
 			
 			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeyPlB8eWWikC6mwAWG7Xwfu-5CgsIfqOxuuBtjmPqYHACi9w/viewform?usp=sf_link">Send Feedbacks</a>
 		
