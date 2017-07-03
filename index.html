@@ -200,10 +200,25 @@
 	</style>
 	
 	<script src="//d3js.org/d3.v3.min.js"></script>
-	<script type="text/javascript" src="testdata.json"></script>	
-	<script type="text/javascript" src="testdata2.json"></script>
 	<script type="text/javascript" src="r1003.json"></script>
 	<script type="text/javascript" src="r1017.json"></script>
+	<script type="text/javascript" src="r1031.json"></script>
+	<script type="text/javascript" src="r1114.json"></script>
+	<script type="text/javascript" src="r1128.json"></script>
+	<script type="text/javascript" src="r1212.json"></script>
+	<script type="text/javascript" src="r1226.json"></script>
+	<script type="text/javascript" src="r0102.json"></script>
+	<script type="text/javascript" src="r0116.json"></script>
+	<script type="text/javascript" src="r0130.json"></script>
+	<script type="text/javascript" src="r0213.json"></script>
+	<script type="text/javascript" src="r0227.json"></script>
+	<script type="text/javascript" src="r0306.json"></script>
+	<script type="text/javascript" src="r0320.json"></script>
+	<script type="text/javascript" src="r0403.json"></script>
+	<script type="text/javascript" src="r0417.json"></script>
+	<script type="text/javascript" src="r0501.json"></script>
+	<script type="text/javascript" src="r0515.json"></script>
+	
 	
 	<script>
 	var mapNum=0;
@@ -219,7 +234,22 @@ function redrawMap (mapNum ,thisnum){
 	mydata = new Array();
 	mydata[0] = JSON.parse(r1003);
 	mydata[1] = JSON.parse(r1017);
-	mydata[2] = JSON.parse(testdata2);	
+	mydata[2] = JSON.parse(r1031);
+	mydata[3] = JSON.parse(r1114);
+	mydata[4] = JSON.parse(r1128);
+	mydata[5] = JSON.parse(r1212);
+	mydata[6] = JSON.parse(r1226);
+	mydata[7] = JSON.parse(r0102);
+	mydata[8] = JSON.parse(r0116);
+	mydata[9] = JSON.parse(r0130);
+	mydata[10] = JSON.parse(r0213);
+	mydata[11] = JSON.parse(r0227);
+	mydata[12] = JSON.parse(r0306);
+	mydata[13] = JSON.parse(r0320);
+	mydata[14] = JSON.parse(r0403);
+	mydata[15] = JSON.parse(r0417);
+	mydata[16] = JSON.parse(r0501);
+	mydata[17] = JSON.parse(r0515);		
 	
 	links = new Array();
 	for (i =0; i<mydata[thisnum].length; i++){
@@ -335,7 +365,22 @@ function redrawMap (mapNum ,thisnum){
 			myjobdata = new Array();
 			myjobdata[0] = JSON.parse(r1003);
 			myjobdata[1] = JSON.parse(r1017);
-			myjobdata[2] = JSON.parse(testdata2);
+			myjobdata[2] = JSON.parse(r1031);
+			myjobdata[3] = JSON.parse(r1114);
+			myjobdata[4] = JSON.parse(r1128);
+			myjobdata[5] = JSON.parse(r1212);
+			myjobdata[6] = JSON.parse(r1226);
+			myjobdata[7] = JSON.parse(r0102);
+			myjobdata[8] = JSON.parse(r0116);
+			myjobdata[9] = JSON.parse(r0130);
+			myjobdata[10] = JSON.parse(r0213);
+			myjobdata[11] = JSON.parse(r0227);
+			myjobdata[12] = JSON.parse(r0306);
+			myjobdata[13] = JSON.parse(r0320);
+			myjobdata[14] = JSON.parse(r0403);
+			myjobdata[15] = JSON.parse(r0417);
+			myjobdata[16] = JSON.parse(r0501);
+			myjobdata[17] = JSON.parse(r0515);
 			
 			jobcate = new Array();
 			temp = new Array();
@@ -362,7 +407,7 @@ function redrawMap (mapNum ,thisnum){
 	<div id="footer-wrapper">
 		<footer id="footer">
 			<p>
-			National Central University, Taoyuan, TaiwaJ 
+			National Central University, Taoyuan, Taiwan 
 			
 			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeyPlB8eWWikC6mwAWG7Xwfu-5CgsIfqOxuuBtjmPqYHACi9w/viewform?usp=sf_link">Send Feedbacks</a>
 		
