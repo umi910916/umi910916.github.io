@@ -204,19 +204,23 @@
 	<script type="text/javascript" src="testdata2.json"></script>	
 	<script>
 	var mapNum=0;
-  function renew(index){
+  function renew(index, thisnum){
 	 //changes
 	 // for(var i=0;i<index.length;i++)	 
 	  
 	  d3.select("#coursemap").html("");
-	  redrawMap(index);	  
+	  redrawMap(index, thisnum);	  
   }
-function redrawMap (mapNum){
+function redrawMap (mapNum ,thisnum){
 	// http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/	
+	mydata = new Array();
+	mydata[0] = JSON.parse(testdata);
+	mydata[1] = JSON.parse(testdata2);
 	var mydata = JSON.parse(testdata);	
+	
 	links = new Array();
-	for (i =0; i<mydata.length; i++){
-		links[i] = mydata[i].toolmap;
+	for (i =0; i<mydata[thisnum].length; i++){
+		links[i] = mydata[thisnum][i].toolmap;
 	
 }	
 		
@@ -320,7 +324,7 @@ function redrawMap (mapNum){
 					<option value="20170501">2017/05/01
 				</select>
 				<p>Job Catagories:
-			    	<select name = "member" size=18 style=width: 180px onChange="renew(this.selectedIndex);">
+			    	<select name = "member" size=18 style=width: 180px onChange="renew(this.selectedIndex, thisdatenum);">
 					<option value=""> Select dates
 				</select>
 			</form>
@@ -368,7 +372,7 @@ function redrawMap (mapNum){
 	<div id="footer-wrapper">
 		<footer id="footer">
 			<p>
-			National Central University, Taoyuan, TaiwaHHH 
+			National Central University, Taoyuan, TaiwaI 
 			
 			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeyPlB8eWWikC6mwAWG7Xwfu-5CgsIfqOxuuBtjmPqYHACi9w/viewform?usp=sf_link">Send Feedbacks</a>
 		
