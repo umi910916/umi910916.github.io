@@ -333,17 +333,17 @@ function redrawMap (mapNum){
 			<p id="change"> choose MAP  </p>
 			<script>
 				txt="";
-			 txt += <form name="myForm">
-			    <p>Job Type：</p>
-			    txt+= <select size=30 style="width: 180px" onChange="renew(this.selectedIndex);">
+			 txt += "<form name="myForm">"
+			    txt += "<p>Job Type：</p>"
+			    txt+= "<select size=30 style="width: 180px" onChange="renew(this.selectedIndex);">"
 				for (each in mydata){
 				    txt += "<option>" + mydata[each].catagory;
 				    
 				    }
 				    
 				
-			    txt += </select>
-			 txt += </form>
+			    txt += "</select>"
+			 txt += "</form>"
 			</script>
 		</nav>
 
@@ -366,7 +366,7 @@ function redrawMap (mapNum){
 	<div id="footer-wrapper">
 		<footer id="footer">
 			<p>
-			National Central University, Taoyuan, TaiwanIII  
+			National Central University, Taoyuan, TaiwanJJJ  
 			
 			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeyPlB8eWWikC6mwAWG7Xwfu-5CgsIfqOxuuBtjmPqYHACi9w/viewform?usp=sf_link">Send Feedbacks</a>
 		
