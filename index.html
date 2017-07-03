@@ -230,13 +230,13 @@
   }
 function redrawMap (mapNum){
 	// http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/
-	var mydata = JSON.parse(testdata)
+	
 	
 	links = new Array();
-	links[0]= mydata[0].toolmap
+	links[0]= [];
 	
 	links[1]=[ 
-		  {source: "ASP", target: "ASP.NET", type: ""},
+		  {"source": "ASP", "target": "ASP.NET", "type": ""},
 		  {source: "C++", target: "C#", type: ""},
 		  {source: "C#", target: "Visual C#", type: ""},
 		  {source: "Visual Studio", target: "Visual Studio .net", type: ""},
@@ -613,7 +613,7 @@ function redrawMap (mapNum){
 	<div id="footer-wrapper">
 		<footer id="footer">
 			<p>
-			National Central University, Taoyuan, TaiwanBBB  
+			National Central University, Taoyuan, TaiwanCCC  
 			
 			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeyPlB8eWWikC6mwAWG7Xwfu-5CgsIfqOxuuBtjmPqYHACi9w/viewform?usp=sf_link">Send Feedbacks</a>
 		
