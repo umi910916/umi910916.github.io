@@ -255,6 +255,7 @@ function redrawMap (mapNum ,thisnum){
 		links[i] = mydata[thisnum][i].toolmap;
 	
 	document.showlist= mydata[thisnum][mapNum].toollist;
+		cosole.log(mydata[thisnum][mapNum].toollist);
 }	
 		
 	
@@ -265,7 +266,7 @@ function redrawMap (mapNum ,thisnum){
 	  link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
 	});
 	var width = 1000,
-	    height = 500;
+	    height = 800;
 	var force = d3.layout.force()
 	    .nodes(d3.values(nodes))
 	    .links(links[mapNum])
