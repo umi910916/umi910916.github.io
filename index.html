@@ -193,7 +193,6 @@
 		    -webkit-transition: width 0.4s ease-in-out;
 		    transition: width 0.4s ease-in-out;
 		}
-
 		input[type=text]:focus {
 		    width: 100%;
 		}
@@ -264,8 +263,8 @@ function redrawMap (mapNum ,thisnum){
 	  link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
 	  link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
 	});
-	var width = 800,
-	    height = 600;
+	var width = 500,
+	    height = 500;
 	var force = d3.layout.force()
 	    .nodes(d3.values(nodes))
 	    .links(links[mapNum])
@@ -335,12 +334,7 @@ function redrawMap (mapNum ,thisnum){
 
 		<nav id="left" class="column">		
 			<form name = "myform">
-			<table>
-			<tr>
-			<td valign = "top" >Recorded Date:</td>
-			<td>
-			
-							
+			<p>Recorded Date:				
 				<select size=18 style=width: 180px onChange="changejob(this.selectedIndex);">
 					<option value="20161003">2016/10/03
 					<option value="20161017">2016/10/17
@@ -361,17 +355,10 @@ function redrawMap (mapNum ,thisnum){
 					<option value="20170501">2017/05/01
 					<option value="20170515">2017/05/15
 				</select>
-				</td>
-				</tr>
-				<tr>
-				<td valign = "top">Job Catagories: </td>
-			    	<td>
-				<select name = "member" size=18 style=width: 180px onChange="renew(this.selectedIndex, thisdatenum);">
+				<p>Job Catagories:
+			    	<select name = "member" size=18 style=width: 180px onChange="renew(this.selectedIndex, thisdatenum);">
 					<option value=""> Select dates
 				</select>
-				</td>
-				</tr>
-				
 			</form>
 			<script>
 			myjobdata = new Array();
@@ -419,7 +406,7 @@ function redrawMap (mapNum ,thisnum){
 	<div id="footer-wrapper">
 		<footer id="footer">
 			<p>
-			National Central University, Taoyuan, TaiwanH 
+			National Central University, Taoyuan, Taiwan 
 			
 			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeyPlB8eWWikC6mwAWG7Xwfu-5CgsIfqOxuuBtjmPqYHACi9w/viewform?usp=sf_link">Send Feedbacks</a>
 		
