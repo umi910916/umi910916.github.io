@@ -254,6 +254,7 @@ function redrawMap (mapNum ,thisnum){
 	for (i =0; i<mydata[thisnum].length; i++){
 		links[i] = mydata[thisnum][i].toolmap;
 	
+	document.showlist= mydata[thisnum][mapNum].toollist;
 }	
 		
 	
@@ -344,7 +345,7 @@ function redrawMap (mapNum ,thisnum){
 		<main id="center" class="column">
 		<svg id = "coursemap" width = "1000" height = "500" align="center">
 		</svg>
-				
+		<p name=showlist>		
 											
 		</main>
 
