@@ -6,7 +6,7 @@
 	<style type="text/css">
 		/* Layout */
 		body {
-			min-width: 630px;
+			min-width: 800px;
 		}
 		#container {
 			padding-left: 200px;
@@ -168,7 +168,7 @@
 		    padding-top: 16px;
 		}
 		/* Change styles for span and cancel button on extra small screens */
-		@media screen and (max-width: 800px) {
+		@media screen and (max-width: 500px) {
 		    span.psw {
 		       display: block;
 		       float: none;
@@ -263,8 +263,8 @@ function redrawMap (mapNum ,thisnum){
 	  link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
 	  link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
 	});
-	var width = 800,
-	    height = 800;
+	var width = 500,
+	    height = 500;
 	var force = d3.layout.force()
 	    .nodes(d3.values(nodes))
 	    .links(links[mapNum])
@@ -406,7 +406,7 @@ function redrawMap (mapNum ,thisnum){
 	<div id="footer-wrapper">
 		<footer id="footer">
 			<p>
-			National Central University, Taoyuan, Taiwan     A 
+			National Central University, Taoyuan, Taiwan     B 
 			
 			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeyPlB8eWWikC6mwAWG7Xwfu-5CgsIfqOxuuBtjmPqYHACi9w/viewform?usp=sf_link">Send Feedbacks</a>
 		
